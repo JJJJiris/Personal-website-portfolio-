@@ -1025,7 +1025,93 @@ main {
 }
 
 /* ---------- 欢迎页 ---------- Body[data-page="welcome"] 无顶栏，全屏居中 */
+.welcome-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.welcome-bg::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(36rem 24rem at 20% 18%, rgba(255, 230, 232, 0.25), transparent 66%),
+    radial-gradient(32rem 22rem at 78% 16%, rgba(224, 239, 255, 0.28), transparent 68%),
+    radial-gradient(28rem 20rem at 72% 82%, rgba(234, 231, 255, 0.24), transparent 70%);
+  filter: blur(10px);
+}
+
+.welcome-bg-item {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  left: 0;
+  top: 0;
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow:
+    0 16px 42px rgba(136, 146, 174, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.welcome-bg-item::before,
+.welcome-bg-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome-bg-item--graphic::before {
+  width: 44%;
+  height: 44%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(108, 118, 142, 0.55);
+}
+
+.welcome-bg-item--graphic::after {
+  width: 50%;
+  height: 1.5px;
+  background: rgba(108, 118, 142, 0.55);
+}
+
+.welcome-bg-item--product::before {
+  width: 52%;
+  height: 40%;
+  border-radius: 8px;
+  border: 1.5px solid rgba(108, 118, 142, 0.58);
+}
+
+.welcome-bg-item--product::after {
+  width: 12%;
+  height: 12%;
+  border-radius: 50%;
+  background: rgba(108, 118, 142, 0.45);
+}
+
+.welcome-bg-item--spatial::before {
+  width: 42%;
+  height: 42%;
+  border: 1.5px solid rgba(108, 118, 142, 0.56);
+  transform: translate(-50%, -56%) rotate(45deg);
+}
+
+.welcome-bg-item--spatial::after {
+  width: 36%;
+  height: 36%;
+  border: 1.5px solid rgba(108, 118, 142, 0.36);
+  transform: translate(-37%, -37%) rotate(45deg);
+}
+
 .welcome-screen {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -1035,6 +1121,12 @@ main {
   max-width: 26rem;
   margin: 0 auto;
   text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-bg-item {
+    transform: none !important;
+  }
 }
 
 .welcome-eyebrow {

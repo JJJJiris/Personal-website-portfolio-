@@ -740,12 +740,93 @@ function initProject() {
 function initWelcome() {
   applyI18n();
   setupLang();
+  setupWelcomeInteraction();
   const enter = document.getElementById("welcome-enter");
   if (enter) {
     enter.addEventListener("click", () => {
       window.location.href = "home.html";
     });
   }
+}
+
+function setupWelcomeInteraction() {
+  const layer = document.getElementById("welcome-bg");
+  if (!layer) return;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const kinds = ["graphic", "product", "spatial"];
+  const count = prefersReduced ? 10 : 18;
+  const items = [];
+  const mouse = {
+    x: window.innerWidth * 0.5,
+    y: window.innerHeight * 0.5,
+    tx: window.innerWidth * 0.5,
+    ty: window.innerHeight * 0.5,
+  };
+
+  for (let i = 0; i < count; i += 1) {
+    const el = document.createElement("span");
+    const kind = kinds[i % kinds.length];
+    el.className = `welcome-bg-item welcome-bg-item--${kind}`;
+    const size = 30 + Math.random() * 34;
+    el.style.setProperty("--size", `${size}px`);
+    layer.appendChild(el);
+    items.push({
+      el,
+      kind,
+      size,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5) * 0.14,
+      vy: (Math.random() - 0.5) * 0.14,
+      seed: Math.random() * Math.PI * 2,
+      speed: 0.0007 + Math.random() * 0.0012,
+      pull: 8 + Math.random() * 14,
+    });
+  }
+
+  const onMove = (ev) => {
+    mouse.tx = ev.clientX;
+    mouse.ty = ev.clientY;
+  };
+  window.addEventListener("pointermove", onMove, { passive: true });
+
+  const onResize = () => {
+    mouse.x = window.innerWidth * 0.5;
+    mouse.y = window.innerHeight * 0.5;
+  };
+  window.addEventListener("resize", onResize, { passive: true });
+
+  const loop = (ts) => {
+    mouse.x += (mouse.tx - mouse.x) * 0.08;
+    mouse.y += (mouse.ty - mouse.y) * 0.08;
+
+    items.forEach((it, idx) => {
+      const wave = Math.sin(ts * it.speed + it.seed);
+      it.x += it.vx + wave * 0.06;
+      it.y += it.vy + Math.cos(ts * it.speed * 0.85 + it.seed) * 0.05;
+
+      if (it.x < -it.size) it.x = window.innerWidth + it.size;
+      if (it.x > window.innerWidth + it.size) it.x = -it.size;
+      if (it.y < -it.size) it.y = window.innerHeight + it.size;
+      if (it.y > window.innerHeight + it.size) it.y = -it.size;
+
+      const dx = mouse.x - it.x;
+      const dy = mouse.y - it.y;
+      const dist = Math.hypot(dx, dy) || 1;
+      const influence = Math.max(0, 1 - dist / 280);
+      const ox = (dx / dist) * influence * it.pull;
+      const oy = (dy / dist) * influence * it.pull;
+      const tilt = wave * 8;
+      const alpha = 0.25 + (idx % 4) * 0.08 + influence * 0.2;
+
+      it.el.style.transform = `translate3d(${it.x + ox}px, ${it.y + oy}px, 0) rotate(${tilt}deg)`;
+      it.el.style.opacity = String(Math.min(0.82, alpha));
+    });
+
+    window.requestAnimationFrame(loop);
+  };
+
+  window.requestAnimationFrame(loop);
 }
 
 const y = document.getElementById("year");
