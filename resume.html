@@ -20,6 +20,7 @@
       <a href="home.html" class="logo" data-i18n="site.name">你的名字</a>
       <div class="header-end">
         <nav class="nav" aria-label="主目录">
+          <a href="home.html" data-i18n="nav.home">主页</a>
           <a href="home.html#about" data-i18n="nav.about">简介</a>
           <a href="resume.html" data-i18n="nav.resume">简历</a>
           <a href="home.html#work" data-i18n="nav.work">作品</a>
@@ -34,15 +35,11 @@
 
     <main id="top">
       <section id="resume" class="section resume resume-page">
-        <div class="resume-section-head">
+        <header class="resume-section-head resume-section-head--intro">
           <h2 class="section-title" data-i18n="section.resume">简历</h2>
-          <div class="resume-actions no-print">
-            <button type="button" id="btn-print-resume" class="btn-pdf" data-i18n="btn.printResume">
-              导出 PDF 简历
-            </button>
-            <span class="pdf-hint" data-i18n="resume.printHint"></span>
-          </div>
-        </div>
+          <p class="resume-subline" data-i18n="resume.subline"></p>
+        </header>
+
         <div class="resume-grid">
           <div class="resume-block">
             <h3 data-i18n="resume.experience">经历</h3>
@@ -57,6 +54,16 @@
             <p class="skills" id="resume-skills-text"></p>
           </div>
         </div>
+
+        <div class="resume-actions no-print resume-actions--footer">
+          <button type="button" id="btn-print-resume" class="btn-pdf" data-i18n="btn.printResume">
+            导出 PDF 简历
+          </button>
+          <span class="pdf-hint" data-i18n="resume.printHint"></span>
+          <p class="resume-back-wrap">
+            <a href="home.html" class="link-cta subtle" data-i18n="resume.backHome">← 返回主页</a>
+          </p>
+        </div>
       </section>
     </main>
 
@@ -64,6 +71,6 @@
       <span>© <span id="year"></span> <span data-i18n="site.name">你的名字</span></span>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
   </body>
 </html>

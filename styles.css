@@ -350,12 +350,36 @@ main {
   margin-bottom: 2rem;
 }
 
+.resume-section-head--intro {
+  margin-bottom: 2rem;
+}
+
+.resume-subline {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  max-width: 40rem;
+}
+
 @media (min-width: 560px) {
   .resume-section-head {
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
   }
+}
+
+.resume-actions--footer {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resume-back-wrap {
+  margin: 0.5rem 0 0;
 }
 
 .resume-actions {
@@ -958,6 +982,10 @@ main {
   .section.resume {
     border-top: none;
     padding: 0;
+  }
+
+  .resume-section-head--intro {
+    margin-bottom: 1.25rem;
   }
 
   .resume-section-head {
