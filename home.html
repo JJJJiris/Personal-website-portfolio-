@@ -20,6 +20,7 @@
       <a href="home.html" class="logo" data-i18n="site.name">你的名字</a>
       <div class="header-end">
         <nav class="nav" aria-label="主目录">
+          <a href="home.html#about" data-i18n="nav.about">简介</a>
           <a href="resume.html" data-i18n="nav.resume">简历</a>
           <a href="home.html#work" data-i18n="nav.work">作品</a>
           <a href="home.html#contact" data-i18n="nav.contact">联系</a>
@@ -32,23 +33,22 @@
     </header>
 
     <main id="top">
-      <section class="hero">
-        <p class="hero-tag" data-i18n="hero.tag">设计师 · 平面 / 产品 / 空间</p>
-        <h1 class="hero-title">
-          <span data-i18n="hero.title1">用极简语言，</span><br />
-          <span data-i18n="hero.title2">讲述清晰的设计叙事。</span>
-        </h1>
-        <p class="hero-lead" data-i18n="hero.lead">
-          你好，我是一名跨媒介设计师，专注于品牌视觉、产品与展陈空间。这里汇总了我的履历与精选项目。
-        </p>
-        <p class="hero-cta">
-          <a href="resume.html" class="link-cta" data-i18n="hero.ctaResume">查看完整简历</a>
-        </p>
+      <section id="about" class="section profile-section">
+        <h2 class="section-title" data-i18n="section.about">简介</h2>
+        <div class="profile-card">
+          <p id="profile-intro" class="profile-intro"></p>
+          <ul id="profile-highlights" class="profile-highlights"></ul>
+          <p class="profile-hint" data-i18n="home.profileHint"></p>
+          <a href="resume.html" class="btn-profile-cta"><span data-i18n="home.ctaFullResume">查看完整简历与导出 PDF</span></a>
+        </div>
       </section>
 
       <section id="work" class="section work">
         <div class="work-head">
-          <h2 class="section-title" data-i18n="section.work">作品集</h2>
+          <div class="work-head-text">
+            <h2 class="section-title" data-i18n="section.work">作品集</h2>
+            <p class="work-intro" data-i18n="work.intro"></p>
+          </div>
           <div class="filters" role="tablist" aria-label="作品分类">
             <button type="button" class="filter active" data-filter="all" role="tab" aria-selected="true">
               <span class="filter-icon filter-icon--all" aria-hidden="true"></span>
@@ -69,7 +69,7 @@
           </div>
         </div>
 
-        <div class="project-grid" id="project-grid"></div>
+        <div class="project-grid project-grid--featured" id="project-grid"></div>
       </section>
 
       <section id="contact" class="section contact">

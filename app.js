@@ -3,29 +3,29 @@ const CONTACT_EMAIL = "hello@example.com";
 const I18N = {
   zh: {
     "site.name": "你的名字",
-    "doc.titleWelcome": "欢迎 · 作品集",
+    "doc.titleWelcome": "很高兴认识你",
     "doc.title": "作品集 · 主页",
     "doc.titleResume": "简历 · 作品集",
-    "meta.descWelcome": "个人作品集与简历 — 选择语言后进入",
-    "meta.desc": "个人简历与作品集 — 平面、产品与空间设计",
+    "meta.descWelcome": "很高兴认识你 — 个人作品集与简历入口",
+    "meta.desc": "个人简历与作品集 — 简介、作品预览、完整履历与 PDF",
     "meta.descResume": "设计师简历 — 经历、教育与技能",
-    "welcome.eyebrow": "作品集与简历",
-    "welcome.title": "欢迎",
-    "welcome.subtitle": "请选择语言（站内其它页面也会使用同一语言），然后进入主页浏览作品与履历。",
+    "welcome.eyebrow": "Portfolio",
+    "welcome.title": "很高兴认识你",
+    "welcome.subtitle":
+      "欢迎来访我的个人站点。请先选择语言，再进入主页：你将看到个人简介摘要与作品大图预览；完整履历与 PDF 导出在「简历」页，每个项目可进入详情阅读全文。",
     "welcome.langLabel": "界面语言",
-    "welcome.enter": "进入站点",
+    "welcome.enter": "进入主页",
+    "nav.about": "简介",
     "nav.resume": "简历",
     "nav.work": "作品",
     "nav.contact": "联系",
-    "hero.tag": "设计师 · 平面 / 产品 / 空间",
-    "hero.title1": "用极简语言，",
-    "hero.title2": "讲述清晰的设计叙事。",
-    "hero.lead":
-      "你好，我是一名跨媒介设计师，专注于品牌视觉、产品与展陈空间。这里汇总了我的履历与精选项目。",
-    "hero.ctaResume": "查看完整简历 →",
+    "section.about": "个人简介",
     "section.resume": "简历",
-    "section.work": "作品集",
+    "section.work": "作品",
     "section.contact": "联系",
+    "home.profileHint": "以上为精简摘要。完整经历、教育、技能列表与导出 PDF，请进入简历页。",
+    "home.ctaFullResume": "查看完整简历与导出 PDF →",
+    "work.intro": "以下为精选案子的预览图与摘要；点击任一案卡进入详细说明与案卷正文。",
     "btn.printResume": "导出 PDF 简历",
     "resume.printHint": "将打开打印窗口，请选择「存储为 PDF」或「Microsoft Print to PDF」。",
     "resume.experience": "经历",
@@ -45,30 +45,31 @@ const I18N = {
   },
   en: {
     "site.name": "Your Name",
-    "doc.titleWelcome": "Welcome · Portfolio",
+    "doc.titleWelcome": "Nice to meet you",
     "doc.title": "Portfolio · Home",
     "doc.titleResume": "Résumé · Portfolio",
-    "meta.descWelcome": "Portfolio & résumé — choose a language to continue",
-    "meta.desc": "Résumé & portfolio — graphic, product, and spatial design",
+    "meta.descWelcome": "Nice to meet you — portfolio & résumé",
+    "meta.desc": "Portfolio home — profile summary, work previews, full résumé & PDF",
     "meta.descResume": "Designer résumé — experience, education, and skills",
-    "welcome.eyebrow": "Portfolio & résumé",
-    "welcome.title": "Welcome",
+    "welcome.eyebrow": "Portfolio",
+    "welcome.title": "Nice to meet you",
     "welcome.subtitle":
-      "Choose your language (used across the site), then continue to the portfolio and résumé.",
+      "Thanks for stopping by. Pick a language, then continue: a short profile and large project previews on the home page; the full résumé with PDF export lives on the Résumé page; each project opens its own detail page.",
     "welcome.langLabel": "Language",
-    "welcome.enter": "Enter site",
+    "welcome.enter": "Enter home",
+    "nav.about": "About",
     "nav.resume": "Résumé",
     "nav.work": "Work",
     "nav.contact": "Contact",
-    "hero.tag": "Designer · Graphic / Product / Spatial",
-    "hero.title1": "Minimal language,",
-    "hero.title2": "clear design narratives.",
-    "hero.lead":
-      "I’m a cross-disciplinary designer focused on brand visuals, product, and exhibition spaces. Below is my résumé and selected projects.",
-    "hero.ctaResume": "View full résumé →",
+    "section.about": "Profile",
     "section.resume": "Résumé",
-    "section.work": "Portfolio",
+    "section.work": "Work",
     "section.contact": "Contact",
+    "home.profileHint":
+      "This is an abbreviated profile. Open the résumé page for the full timeline, education, skills, and PDF export.",
+    "home.ctaFullResume": "Full résumé & PDF export →",
+    "work.intro":
+      "Selected projects at a glance—larger previews and summaries. Open any card for the full case study and narrative.",
     "btn.printResume": "Export résumé as PDF",
     "resume.printHint": "Opens the print dialog — choose “Save as PDF” (or similar) as the destination.",
     "resume.experience": "Experience",
@@ -135,8 +136,31 @@ const RESUME = {
   },
 };
 
+/** 主页「简介」区展示的精简文案（完整内容见 resume.html） */
+const PROFILE_HOME = {
+  zh: {
+    intro:
+      "你好，我是一名跨媒介设计师，习惯用克制的图形与空间节奏讲清楚品牌想说什么。工作覆盖视觉系统、产品包装与小型展陈，常与业主、印厂和施工协作，把概念推进到可落地的标准。",
+    highlights: [
+      "现任高级设计师：品牌与空间视觉统筹，Brief 到落地一体化。",
+      "此前专注平面与包装，熟悉结构打样、材料与展会陈列。",
+      "工具：Adobe CC、Figma、Blender、Rhino；重视文档化交付。",
+    ],
+  },
+  en: {
+    intro:
+      "I’m a cross-disciplinary designer who favors restrained graphics and spatial rhythm to clarify what a brand wants to say. Work spans identity systems, product packaging, and small-scale exhibits—often coordinating with clients, printers, and builders to turn concepts into buildable standards.",
+    highlights: [
+      "Senior designer today: brand and spatial visual direction from brief to production.",
+      "Earlier focus on print and packaging—prototyping, materials, and fair displays.",
+      "Tools: Adobe CC, Figma, Blender, Rhino; documentation-minded handoff.",
+    ],
+  },
+};
+
 /**
  * slug: 项目页 URL project.html?slug=xxx
+ * preview: 主页卡片「大体预览」用（可长于 description）
  * content: 详情正文，用 \n\n 分段
  */
 const PROJECTS = [
@@ -147,6 +171,10 @@ const PROJECTS = [
     description: {
       zh: "整套 VI 与延展应用，浅色极简主调。",
       en: "Full VI and applications with a light, minimal tone.",
+    },
+    preview: {
+      zh: "为科技生活方式品牌建立浅色极简的 VI 体系：主标与辅助图形统一于可延展网格，色彩与字体规则覆盖数字端与印刷物料。团队可按手册自行派生海报、包装贴与社媒模板，减少反复沟通。",
+      en: "A light, minimal VI for a tech–lifestyle brand: core mark and extensions locked to a flexible grid, with color and type rules for digital and print. Teams can self-serve posters, pack labels, and social templates from the manual with less back-and-forth.",
     },
     content: {
       zh: "从标志基础到延展图形、色彩与字体规则，统一线上与印刷触点。\n\n侧重可执行的规范文档，便于团队协作与外包对接。",
@@ -161,6 +189,10 @@ const PROJECTS = [
       zh: "结构与印刷工艺一体化方案。",
       en: "Structure and print workflow in one scheme.",
     },
+    preview: {
+      zh: "消费电子产品包装一体化方案：刀模结构兼顾跌落测试与撕拉手感，外箱与内托分层选用不同楞型与表面处理。与印厂联合打样校准专色与烫印套位，形成量产前的标准样箱与检查清单。",
+      en: "Consumer electronics packaging in one scheme: die lines balance protection and peel UX; outer carton and inner tray use different boards and finishes. Joint proofing with the printer locks spot colors and foil register before mass production.",
+    },
     content: {
       zh: "在保护性与拆箱体验之间取舍，确定材质、楞型与表面处理。\n\n打样阶段与印厂对齐套色与工差，控制量产一致性。",
       en: "Balancing protection and unboxing within material, board, and finish constraints.\n\nProofing with the printer for color registration and tolerance at scale.",
@@ -173,6 +205,10 @@ const PROJECTS = [
     description: {
       zh: "小型 Popup 与展位灯光规划。",
       en: "Popup spaces and booth lighting planning.",
+    },
+    preview: {
+      zh: "限时 Popup 的空间策略：用地面材质与展墙高度暗示动线，主展品置于进深焦点，周边设置可触摸样件区。灯光分大环境、洗墙与定点重点三层，依展品反光特性调节角度，保证拍照与现场观感一致。",
+      en: "A time-limited popup: flooring and wall heights cue circulation; the hero piece sits on the sightline with tactile samples nearby. Lighting layers—ambient, wall wash, and accents—are tuned to each material’s reflectance for photos and in-person viewing.",
     },
     content: {
       zh: "梳理参观动线与视线焦点，划分展示区与互动区。\n\n灯光层次配合展品材质，避免眩光并突出主视觉。",
@@ -187,6 +223,10 @@ const PROJECTS = [
       zh: "文集与展览画册的版式与纸张选择。",
       en: "Layout and paper choices for books and exhibition catalogues.",
     },
+    preview: {
+      zh: "展览画册兼长文文集：网格系统区分文章区、作品拉页与注释栏，脚注与图注样式统一。内文纸与封面纸分别试印，在翻阅手感、色彩还原与预算之间确定克重与装订（锁线胶装），附印厂材料表便于复单。",
+      en: "A catalogue that doubles as a reader: grids separate essays, plate sections, and marginalia; captions and footnotes share one typographic system. Text and cover stocks are proofed separately to balance hand feel, color, and budget—with thread-sewn binding and a mill-ready spec sheet.",
+    },
     content: {
       zh: "网格与留白服务于长文可读性，插图与脚注系统一致。\n\n纸张克重与装订方式按印量与成本联合选定。",
       en: "Grids and margins tuned for long-form reading; consistent figure and note systems.\n\nPaper weight and binding chosen with print run and budget.",
@@ -200,6 +240,10 @@ const PROJECTS = [
       zh: "模块化构件与材质研究。",
       en: "Modular parts and material studies.",
     },
+    preview: {
+      zh: "家具系列概念阶段：以三种截面构件通过搭接形成多种长宽高组合，便于平板包装。材质样板在模型阶段比对橡木贴面与金属脚盖的色差与触感，节点三维打印验证承重后再开模具。",
+      en: "Furniture concept phase: three cross-section members combinable at multiple scales for flat-pack shipping. Oak veneer vs. metal foot caps are mocked up for color and touch; joints are 3D-printed for load tests before tooling.",
+    },
     content: {
       zh: "通过少量模块组合多种尺度，便于仓储与运输。\n\n材质样板与结构节点在模型阶段验证。",
       en: "A small kit of parts scales across formats for storage and shipping.\n\nMaterial studies and joints validated in scale models.",
@@ -212,6 +256,10 @@ const PROJECTS = [
     description: {
       zh: "工作区与材料库一体化空间。",
       en: "Integrated workspace and materials library.",
+    },
+    preview: {
+      zh: "工作室改造将材料库与专注工位分层：入口处为材料岛台与样册墙，自然光充足便于比色；内侧工位靠可控台灯与隔音板材隔开打样区噪音。储物系统按「常用/归档」分区标签，缩短找样与归位时间。",
+      en: "Studio retrofit layers the library and deep-work zones: an entry island and sample wall sit in daylight for color checks; desks inside use task lights and acoustic panels away from noisy prototyping. Storage is zoned for daily vs. archive stock to cut search time.",
     },
     content: {
       zh: "日光与人工照明分区控制，材料岛台便于比样。\n\n动静分区减少打样区对专注工位的干扰。",
@@ -309,23 +357,41 @@ function projectHref(slug) {
   return `project.html?slug=${encodeURIComponent(slug)}`;
 }
 
-function thumbBlock(p, alt, hrefForCard) {
+function thumbBlock(p, alt, hrefForCard, largeThumb) {
   const src = projectImageSrc(p);
+  const sizeCls = largeThumb ? " project-thumb--large" : "";
   const wrapStart = hrefForCard ? `<a href="${hrefForCard}" class="project-thumb-wrap">` : "<div>";
   const wrapEnd = hrefForCard ? "</a>" : "</div>";
   if (src !== "") {
-    return `${wrapStart}<div class="project-thumb project-thumb--img">
+    return `${wrapStart}<div class="project-thumb project-thumb--img${sizeCls}">
         <img src="${escapeHtml(src)}" alt="${alt}" width="960" height="720" loading="lazy" decoding="async" />
         <span class="cat-badge">
           <span class="filter-icon ${CATEGORY_CLASS[p.category]}" aria-hidden="true"></span>
         </span>
       </div>${wrapEnd}`;
   }
-  return `${wrapStart}<div class="project-thumb project-thumb--empty" role="img" aria-label="${alt}">
+  return `${wrapStart}<div class="project-thumb project-thumb--empty${sizeCls}" role="img" aria-label="${alt}">
         <span class="cat-badge">
           <span class="filter-icon ${CATEGORY_CLASS[p.category]}" aria-hidden="true"></span>
         </span>
       </div>${wrapEnd}`;
+}
+
+function projectCardPreview(p) {
+  const raw = p.preview && (p.preview[locale] || p.preview.zh);
+  if (raw) return raw;
+  return p.description[locale] || p.description.zh;
+}
+
+function renderProfileHome() {
+  const introEl = document.getElementById("profile-intro");
+  const listEl = document.getElementById("profile-highlights");
+  if (!introEl || !listEl) return;
+  const block = PROFILE_HOME[locale] || PROFILE_HOME.zh;
+  introEl.textContent = block.intro;
+  listEl.innerHTML = block.highlights
+    .map((line) => `<li>${escapeHtml(line)}</li>`)
+    .join("");
 }
 
 function renderProjects() {
@@ -333,15 +399,15 @@ function renderProjects() {
   if (!grid) return;
   grid.innerHTML = PROJECTS.map((p) => {
     const title = p.title[locale] || p.title.zh;
-    const desc = p.description[locale] || p.description.zh;
+    const previewText = projectCardPreview(p);
     const alt = escapeHtml(title);
     const href = projectHref(p.slug);
-    const thumb = thumbBlock(p, alt, href);
-    return `<article class="project-card" data-category="${p.category}">
+    const thumb = thumbBlock(p, alt, href, true);
+    return `<article class="project-card project-card--preview" data-category="${p.category}">
       ${thumb}
       <div class="project-body">
         <h3><a href="${href}" class="project-title-link">${escapeHtml(title)}</a></h3>
-        <p>${escapeHtml(desc)}</p>
+        <p class="project-preview">${escapeHtml(previewText)}</p>
         <p class="project-more"><a href="${href}" class="link-cta subtle">${escapeHtml(t("project.open"))}</a></p>
       </div>
     </article>`;
@@ -467,6 +533,7 @@ function onLocaleChange() {
     return;
   }
   if (pt === "home") {
+    renderProfileHome();
     renderProjects();
     reapplyFilterState(filter);
   } else if (pt === "resume") {
@@ -504,6 +571,7 @@ function setupContactMail() {
 
 function initHome() {
   applyI18n();
+  renderProfileHome();
   renderProjects();
   setupFilters();
   setupLang();
