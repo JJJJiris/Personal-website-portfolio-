@@ -66,23 +66,23 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 1rem 1.5rem;
-  max-width: 1080px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   background: rgba(248, 246, 243, 0.72);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
+  box-sizing: border-box;
 }
 
-.header-end {
+.site-header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem clamp(1rem, 4vw, 1.75rem);
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  justify-content: space-between;
+  gap: 1rem 1.25rem;
   flex-wrap: wrap;
 }
 
@@ -159,6 +159,7 @@ body::before {
 }
 
 .logo {
+  flex-shrink: 0;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -167,15 +168,21 @@ body::before {
 
 .nav {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.75rem, 2.5vw, 1.5rem);
+  flex: 1;
+  min-width: min(100%, 12rem);
 }
 
 .nav a {
   color: var(--ink-muted);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 2.4vw, 0.95rem);
   font-weight: 500;
   transition: color 0.2s var(--ease);
+  white-space: nowrap;
 }
 
 .nav a:hover {
@@ -185,7 +192,7 @@ body::before {
 main {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 2.5rem clamp(1rem, 4vw, 1.75rem) 4rem;
 }
 
 .hero {
@@ -789,7 +796,7 @@ main {
 .main-project {
   max-width: 720px;
   margin: 0 auto;
-  padding: 1rem 1.5rem 3.5rem;
+  padding: 1rem clamp(1rem, 4vw, 1.75rem) 3.5rem;
 }
 
 .back-link {
@@ -954,12 +961,41 @@ main {
 }
 
 .site-footer {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   border-top: 1px solid var(--line);
   font-size: 0.82rem;
   color: var(--ink-soft);
+  box-sizing: border-box;
+}
+
+.site-footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 1.75rem) 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+}
+
+.footer-lang-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(28, 27, 26, 0.15);
+  padding-bottom: 1px;
+  transition:
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.footer-lang-link:hover {
+  color: var(--ink);
+  border-bottom-color: rgba(28, 27, 26, 0.28);
 }
 
 /* ---------- 打印 PDF：仅简历区块 ---------- */
