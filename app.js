@@ -15,6 +15,10 @@ const I18N = {
       "欢迎来访我的个人站点。请先选择语言，再进入主页：你将看到个人简介摘要与作品大图预览；完整履历与 PDF 导出在「简历」页，每个项目可进入详情阅读全文。",
     "welcome.langLabel": "界面语言",
     "welcome.enter": "进入主页",
+    "lang.optionZh": "中文",
+    "lang.optionEn": "EN",
+    "nav.aria": "主导航",
+    "aria.langGroup": "界面语言",
     "nav.home": "主页",
     "nav.about": "简介",
     "nav.resume": "简历",
@@ -60,6 +64,10 @@ const I18N = {
       "Thanks for stopping by. Pick a language, then continue: a short profile and large project previews on the home page; the full résumé with PDF export lives on the Résumé page; each project opens its own detail page.",
     "welcome.langLabel": "Language",
     "welcome.enter": "Enter home",
+    "lang.optionZh": "Chinese",
+    "lang.optionEn": "English",
+    "nav.aria": "Main navigation",
+    "aria.langGroup": "Interface language",
     "nav.home": "Home",
     "nav.about": "About",
     "nav.resume": "Résumé",
@@ -301,7 +309,8 @@ function t(key) {
 function applyI18n() {
   document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
   document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
+    const key = (el.getAttribute("data-i18n") || "").trim();
+    if (!key) return;
     el.textContent = t(key);
   });
 
@@ -321,11 +330,20 @@ function applyI18n() {
     }
   }
 
+  document.querySelectorAll(".site-header .nav").forEach((el) => {
+    el.setAttribute("aria-label", t("nav.aria"));
+  });
+  document.querySelectorAll(".lang-switch").forEach((el) => {
+    el.setAttribute("aria-label", t("aria.langGroup"));
+  });
+
   const filters = document.querySelector(".filters");
   if (filters) filters.setAttribute("aria-label", t("filter.aria"));
 
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    const active = btn.getAttribute("data-lang") === locale;
+  document.querySelectorAll(".lang-btn[data-lang]").forEach((btn) => {
+    const code = btn.getAttribute("data-lang");
+    btn.textContent = code === "zh" ? t("lang.optionZh") : t("lang.optionEn");
+    const active = code === locale;
     btn.classList.toggle("active", active);
     btn.setAttribute("aria-pressed", String(active));
   });
