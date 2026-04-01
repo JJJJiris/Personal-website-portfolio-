@@ -20,11 +20,11 @@
       <div class="site-header-inner">
         <a href="home.html" class="logo" data-i18n="site.name">姜春蔚</a>
         <nav class="nav" aria-label="主目录">
-          <a href="home.html" data-i18n="navHome">主页</a>
-          <a href="home.html#about" data-i18n="nav.about">简介</a>
-          <a href="resume.html" data-i18n="nav.resume">简历</a>
-          <a href="home.html#work" data-i18n="nav.work">作品</a>
-          <a href="home.html#contact" data-i18n="nav.contact">联系</a>
+          <a href="home.html" class="nav-link active" data-i18n="navHome">主页</a>
+          <a href="home.html#about" class="nav-link" data-i18n="nav.about">简介</a>
+          <a href="resume.html" class="nav-link" data-i18n="nav.resume">简历</a>
+          <a href="home.html#work" class="nav-link" data-i18n="nav.work">作品</a>
+          <a href="home.html#contact" class="nav-link" data-i18n="nav.contact">联系</a>
         </nav>
       </div>
     </header>
@@ -34,6 +34,28 @@
         <h2 class="section-title" data-i18n="section.about">简介</h2>
         <div class="profile-card">
           <div class="profile-copy">
+            <div class="resume-info-grid">
+              <div class="resume-info-item">
+                <span class="resume-info-label" data-i18n="profile.nameLabel">姓名</span>
+                <span class="resume-info-value" id="profile-name"></span>
+              </div>
+              <div class="resume-info-item">
+                <span class="resume-info-label" data-i18n="profile.emailLabel">邮箱</span>
+                <span class="resume-info-value"><a id="profile-email" href="mailto:um56912@um.edu.mo">um56912@um.edu.mo</a></span>
+              </div>
+              <div class="resume-info-item">
+                <span class="resume-info-label" data-i18n="profile.phoneLabel">电话</span>
+                <span class="resume-info-value"><a id="profile-phone" href="tel:15543602223">15543602223</a></span>
+              </div>
+              <div class="resume-info-item">
+                <span class="resume-info-label" data-i18n="profile.locationLabel">所在地</span>
+                <span class="resume-info-value" id="profile-location"></span>
+              </div>
+              <div class="resume-info-item">
+                <span class="resume-info-label" data-i18n="profile.educationLabel">学历</span>
+                <span class="resume-info-value" id="profile-education"></span>
+              </div>
+            </div>
             <p id="profile-intro" class="profile-intro"></p>
             <ul id="profile-highlights" class="profile-highlights"></ul>
             <p class="profile-hint" data-i18n="home.profileHint"></p>

@@ -189,6 +189,32 @@ body::before {
   color: var(--ink);
 }
 
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2rem;
+  height: 1px;
+  background: rgba(28, 27, 26, 0.45);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.2s var(--ease);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: var(--ink);
+}
+
 main {
   max-width: 1080px;
   margin: 0 auto;
@@ -277,6 +303,39 @@ main {
   min-width: 0;
 }
 
+.resume-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 1rem;
+  margin: 0 0 1rem;
+}
+
+.resume-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.resume-info-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.resume-info-value {
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.resume-info-value a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(28, 27, 26, 0.14);
+}
+
 .profile-media {
   margin: 0;
   justify-self: end;
@@ -329,6 +388,11 @@ main {
   .profile-media {
     justify-self: start;
     order: -1;
+  }
+
+  .resume-info-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 }
 

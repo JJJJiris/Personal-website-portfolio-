@@ -1,4 +1,4 @@
-const CONTACT_EMAIL = "hello@example.com";
+const CONTACT_EMAIL = "um56912@um.edu.mo";
 
 const I18N = {
   zh: {
@@ -50,6 +50,11 @@ const I18N = {
     "project.notFound": "未找到该项目。",
     "project.open": "查看项目 →",
     "footer.langLink": "欢迎页 · 语言",
+    "profile.nameLabel": "姓名",
+    "profile.emailLabel": "邮箱",
+    "profile.phoneLabel": "电话",
+    "profile.locationLabel": "所在地",
+    "profile.educationLabel": "学历",
   },
   en: {
     "site.name": "Jiang Chunwei",
@@ -101,6 +106,11 @@ const I18N = {
     "project.notFound": "Project not found.",
     "project.open": "View project →",
     "footer.langLink": "Welcome · Language",
+    "profile.nameLabel": "Name",
+    "profile.emailLabel": "Email",
+    "profile.phoneLabel": "Phone",
+    "profile.locationLabel": "Location",
+    "profile.educationLabel": "Education",
   },
 };
 
@@ -217,6 +227,23 @@ const PROFILE_HOME = {
       "I have hands-on experience in visual system upgrades, IP derivative assets, and cross-platform adaptation.",
       "As a campus media chief editor and student union president, I developed strong planning and team coordination skills.",
     ],
+  },
+};
+
+const PROFILE_INFO = {
+  zh: {
+    name: "姜春蔚 Jiris",
+    email: "um56912@um.edu.mo",
+    phone: "15543602223",
+    location: "澳门",
+    education: "澳门大学 · 视觉传达硕士在读",
+  },
+  en: {
+    name: "Jiang Chunwei (Jiris)",
+    email: "um56912@um.edu.mo",
+    phone: "15543602223",
+    location: "Macao",
+    education: "University of Macau · M.A. in Visual Communication (ongoing)",
   },
 };
 
@@ -460,6 +487,24 @@ function renderProfileHome() {
   const listEl = document.getElementById("profile-highlights");
   if (!introEl || !listEl) return;
   const block = PROFILE_HOME[locale] || PROFILE_HOME.zh;
+  const info = PROFILE_INFO[locale] || PROFILE_INFO.zh;
+  const nameEl = document.getElementById("profile-name");
+  const emailEl = document.getElementById("profile-email");
+  const phoneEl = document.getElementById("profile-phone");
+  const locationEl = document.getElementById("profile-location");
+  const eduEl = document.getElementById("profile-education");
+
+  if (nameEl) nameEl.textContent = info.name;
+  if (emailEl) {
+    emailEl.textContent = info.email;
+    emailEl.href = `mailto:${info.email}`;
+  }
+  if (phoneEl) {
+    phoneEl.textContent = info.phone;
+    phoneEl.href = `tel:${info.phone}`;
+  }
+  if (locationEl) locationEl.textContent = info.location;
+  if (eduEl) eduEl.textContent = info.education;
   introEl.textContent = block.intro;
   listEl.innerHTML = block.highlights
     .map((line) => `<li>${escapeHtml(line)}</li>`)
