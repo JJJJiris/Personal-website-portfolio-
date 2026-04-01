@@ -21,7 +21,6 @@
         <a href="home.html" class="logo" data-i18n="site.name">姜春蔚</a>
         <nav class="nav" aria-label="主目录">
           <a href="home.html" class="nav-link active" data-i18n="navHome">主页</a>
-          <a href="home.html#about" class="nav-link" data-i18n="nav.about">简介</a>
           <a href="resume.html" class="nav-link" data-i18n="nav.resume">简历</a>
           <a href="home.html#work" class="nav-link" data-i18n="nav.work">作品</a>
           <a href="home.html#contact" class="nav-link" data-i18n="nav.contact">联系</a>
@@ -30,8 +29,21 @@
     </header>
 
     <main id="top">
+      <section class="hero">
+        <p class="hero-tag" data-i18n="home.heroTag">个人网站</p>
+        <h1 class="hero-title" data-i18n="home.heroTitle">视觉与空间设计</h1>
+        <p class="hero-lead" data-i18n="home.heroLead">
+          以作品为主，辅以个人履历与感兴趣方向。期待合作与机会。
+        </p>
+        <p class="hero-cta">
+          <a href="home.html#work" class="link-cta"><span data-i18n="home.heroWork">查看作品 →</span></a>
+          <span class="hero-cta-split"> / </span>
+          <a href="resume.html" class="link-cta"><span data-i18n="home.heroResume">查看简历 →</span></a>
+        </p>
+      </section>
+
       <section id="about" class="section profile-section">
-        <h2 class="section-title" data-i18n="section.about">简介</h2>
+        <h2 class="section-title" data-i18n="section.about">个人与履历</h2>
         <div class="profile-card">
           <div class="profile-copy">
             <div class="resume-info-grid">
@@ -94,6 +106,19 @@
         </div>
 
         <div class="project-grid project-grid--featured" id="project-grid"></div>
+      </section>
+
+      <section class="section interests-section">
+        <h2 class="section-title" data-i18n="home.interestsTitle">感兴趣的方向</h2>
+        <p class="interests-desc" data-i18n="home.interestsDesc">全媒介视觉、IP 与品牌、AIGC 与动态视觉、展陈与空间、活动全案与乡村振兴。</p>
+        <ul class="interests-list">
+          <li class="interest-tag" data-i18n="home.interest1">VI 与 IP 形象</li>
+          <li class="interest-tag" data-i18n="home.interest2">动态海报与主视觉</li>
+          <li class="interest-tag" data-i18n="home.interest3">AIGC 与视频</li>
+          <li class="interest-tag" data-i18n="home.interest4">展陈与叙事空间</li>
+          <li class="interest-tag" data-i18n="home.interest5">大屏与新媒体视觉</li>
+          <li class="interest-tag" data-i18n="home.interest6">设计赋能乡村振兴</li>
+        </ul>
       </section>
 
       <section id="contact" class="section contact">
