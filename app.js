@@ -2,13 +2,13 @@ const CONTACT_EMAIL = "hello@example.com";
 
 const I18N = {
   zh: {
-    "site.name": "你的名字",
+    "site.name": "姜春蔚",
     "doc.titleWelcome": "很高兴认识你",
-    "doc.title": "作品集 · 主页",
-    "doc.titleResume": "简历 · 作品集",
-    "meta.descWelcome": "很高兴认识你 — 个人作品集与简历入口",
-    "meta.desc": "个人简历与作品集 — 简介、作品预览、完整履历与 PDF",
-    "meta.descResume": "设计师简历 — 经历、教育与技能",
+    "doc.title": "姜春蔚 · 主页",
+    "doc.titleResume": "姜春蔚 · 简历",
+    "meta.descWelcome": "姜春蔚个人作品集与简历入口",
+    "meta.desc": "姜春蔚个人简介、项目预览与完整履历",
+    "meta.descResume": "姜春蔚简历 — 教育、实习与技能",
     "welcome.eyebrow": "Portfolio",
     "welcome.title": "很高兴认识你",
     "welcome.subtitle":
@@ -30,7 +30,7 @@ const I18N = {
     "section.resume": "简历",
     "section.work": "作品",
     "section.contact": "联系",
-    "home.profileHint": "以上为精简摘要。完整经历、教育、技能列表与导出 PDF，请进入简历页。",
+    "home.profileHint": "以上为精简摘要。完整教育、实习经历与技能请进入简历页查看。",
     "home.ctaFullResume": "查看完整简历与导出 PDF →",
     "work.intro": "以下为精选案子的预览图与摘要；点击任一案卡进入详细说明与案卷正文。",
     "btn.printResume": "导出 PDF 简历",
@@ -52,13 +52,13 @@ const I18N = {
     "footer.langLink": "欢迎页 · 语言",
   },
   en: {
-    "site.name": "Your Name",
+    "site.name": "Jiang Chunwei",
     "doc.titleWelcome": "Nice to meet you",
-    "doc.title": "Portfolio · Home",
-    "doc.titleResume": "Resume · Portfolio",
-    "meta.descWelcome": "Nice to meet you — portfolio & resume",
-    "meta.desc": "Portfolio home — profile summary, work previews, full resume & PDF",
-    "meta.descResume": "Designer resume — experience, education, and skills",
+    "doc.title": "Jiang Chunwei · Home",
+    "doc.titleResume": "Jiang Chunwei · Resume",
+    "meta.descWelcome": "Jiang Chunwei portfolio and resume gateway",
+    "meta.desc": "Profile summary, selected projects, and full resume",
+    "meta.descResume": "Jiang Chunwei resume — education, internship, and skills",
     "welcome.eyebrow": "Portfolio",
     "welcome.title": "Nice to meet you",
     "welcome.subtitle":
@@ -80,8 +80,7 @@ const I18N = {
     "section.resume": "Resume",
     "section.work": "Work",
     "section.contact": "Contact",
-    "home.profileHint":
-      "This is an abbreviated profile. Open the Resume page for the full timeline, education, skills, and PDF export.",
+    "home.profileHint": "This is a concise profile. Open Resume for full education, internship details, and skills.",
     "home.ctaFullResume": "Full resume & PDF export →",
     "work.intro":
       "Selected projects at a glance—larger previews and summaries. Open any card for the full case study and narrative.",
@@ -109,46 +108,93 @@ const RESUME = {
   experience: [
     {
       zh: {
-        time: "2022 — 至今",
-        role: "高级设计师 · 某工作室",
-        detail: "品牌与空间视觉统筹，客户端从概念到落地。",
+        time: "2024.07 — 2025.03",
+        role: "全媒体视觉设计实习生 · 吉林广播电视台",
+        detail:
+          "运用 Stable Diffusion、Midjourney、Runway 制作 AI 文旅宣传 MV（累计 200+ 镜头）；完成动态海报与 H5 专题页设计，作品曝光超 10w+。",
       },
       en: {
-        time: "2022 — Present",
-        role: "Senior Designer · Studio Name",
-        detail: "Brand and spatial visual direction, concept through production.",
+        time: "2024.07 — 2025.03",
+        role: "Multimedia Visual Design Intern · Jilin Radio and Television Station",
+        detail:
+          "Produced AI-powered tourism MVs with Stable Diffusion, Midjourney, and Runway (200+ shots), plus dynamic posters and H5 pages with over 100k total impressions.",
       },
     },
     {
       zh: {
-        time: "2018 — 2022",
-        role: "视觉设计师 · 某公司",
-        detail: "平面与包装设计，参与产品线迭代与展会陈列。",
+        time: "2024.07 — 2025.03",
+        role: "栏目视觉升级与内容流程优化",
+        detail:
+          "主导《早安吉林》《正午吉林》栏目视觉升级与 IP 延展物料（50+ 套）；建立模板化内容生产 SOP，短视频制作周期缩短约 40%。",
       },
       en: {
-        time: "2018 — 2022",
-        role: "Visual Designer · Company Name",
-        detail: "Print and packaging design; product lines and fair displays.",
+        time: "2024.07 — 2025.03",
+        role: "Program visual upgrade and production optimization",
+        detail:
+          "Led visual refresh and IP assets (50+ sets) for major programs, and set up template-based SOPs that shortened short-video production cycles by around 40%.",
+      },
+    },
+    {
+      zh: {
+        time: "2023.04 — 2024.07",
+        role: "主编 · 校级媒体公众号",
+        detail: "策划专题推文，累计阅读量 5W+，带动公众号粉丝增长约 150%。",
+      },
+      en: {
+        time: "2023.04 — 2024.07",
+        role: "Chief Editor · Campus media account",
+        detail:
+          "Planned feature campaigns with 50k+ cumulative reads, driving approximately 150% follower growth.",
+      },
+    },
+    {
+      zh: {
+        time: "2023.05 — 2024.05",
+        role: "学生会主席",
+        detail:
+          "发起“设计赋能乡村振兴”项目，带队服务桐乡 5 个乡村文旅 IP；统筹大型活动 8 场，协同 200+ 人，预算执行准确率 98%。",
+      },
+      en: {
+        time: "2023.05 — 2024.05",
+        role: "President · Student Union",
+        detail:
+          "Initiated a design-for-rural-revitalization program for 5 villages in Tongxiang; coordinated 8 large events with 200+ participants and 98% budget accuracy.",
       },
     },
   ],
   education: [
     {
       zh: {
-        time: "2014 — 2018",
-        role: "设计学 学士",
-        detail: "某某大学 · 视觉传达",
+        time: "2025.09 — 至今",
+        role: "澳门大学 · 视觉传达（硕士）",
+        detail: "主修设计项目、数位艺术与人工智能技术、界面交互设计等，GPA 3.9/4。",
       },
       en: {
-        time: "2014 — 2018",
-        role: "B.A. in Design",
-        detail: "University Name · Visual Communication",
+        time: "2025.09 — Present",
+        role: "University of Macau · M.A. in Visual Communication Design",
+        detail:
+          "Courses include design projects, digital art and AI technology, and interaction design. GPA: 3.9/4.",
+      },
+    },
+    {
+      zh: {
+        time: "2021.09 — 2025.06",
+        role: "浙江传媒学院 · 产品设计（本科）",
+        detail:
+          "综合成绩 88.83/100（专业 1/67）；获浙江省政府奖学金、一等奖学金等。全国高校会展创意大赛二等奖等竞赛奖项。",
+      },
+      en: {
+        time: "2021.09 — 2025.06",
+        role: "Zhejiang University of Media and Communications · B.A. in Product Design",
+        detail:
+          "Overall score 88.83/100 (rank 1/67). Recipient of provincial scholarship, first-class scholarship, and multiple national/provincial competition awards.",
       },
     },
   ],
   skills: {
-    zh: "Adobe CC · Figma · Blender · Rhino · 印刷工艺 · 材料与打样协调",
-    en: "Adobe CC · Figma · Blender · Rhino · Print production · Material & sampling coordination",
+    zh: "Adobe Illustrator · Photoshop · Procreate · Midjourney · Runway（精通） | 剪映 · Stable Diffusion（熟练） | Rhino · KeyShot（产品渲染）",
+    en:
+      "Adobe Illustrator, Photoshop, Procreate, Midjourney, Runway (advanced) | Jianying, Stable Diffusion (proficient) | Rhino, KeyShot (product rendering)",
   },
 };
 
@@ -156,20 +202,20 @@ const RESUME = {
 const PROFILE_HOME = {
   zh: {
     intro:
-      "你好，我是一名跨媒介设计师，习惯用克制的图形与空间节奏讲清楚品牌想说什么。工作覆盖视觉系统、产品包装与小型展陈，常与业主、印厂和施工协作，把概念推进到可落地的标准。",
+      "你好，我是姜春蔚，现就读于澳门大学视觉传达硕士。关注 AI 技术与视觉叙事结合，持续实践新媒体视觉、栏目包装与跨平台内容设计。",
     highlights: [
-      "现任高级设计师：品牌与空间视觉统筹，Brief 到落地一体化。",
-      "此前专注平面与包装，熟悉结构打样、材料与展会陈列。",
-      "工具：Adobe CC、Figma、Blender、Rhino；重视文档化交付。",
+      "在吉林广播电视台实习期间，参与 AI 文旅 MV、动态海报、H5 专题等内容生产，累计曝光 10w+。",
+      "具备栏目视觉升级、IP 延展物料设计与跨端适配经验，擅长把创意转化为可复用流程。",
+      "在校期间担任公众号主编与学生会主席，具有项目统筹与团队协作经验。",
     ],
   },
   en: {
     intro:
-      "I’m a cross-disciplinary designer who favors restrained graphics and spatial rhythm to clarify what a brand wants to say. Work spans identity systems, product packaging, and small-scale exhibits—often coordinating with clients, printers, and builders to turn concepts into buildable standards.",
+      "Hi, I am Jiang Chunwei, currently pursuing a master's degree in Visual Communication at the University of Macau. I focus on combining AI tools with visual storytelling across media.",
     highlights: [
-      "Senior designer today: brand and spatial visual direction from brief to production.",
-      "Earlier focus on print and packaging—prototyping, materials, and fair displays.",
-      "Tools: Adobe CC, Figma, Blender, Rhino; documentation-minded handoff.",
+      "At Jilin Radio and Television Station, I worked on AI tourism MVs, animated posters, and H5 campaigns, with 100k+ total impressions.",
+      "I have hands-on experience in visual system upgrades, IP derivative assets, and cross-platform adaptation.",
+      "As a campus media chief editor and student union president, I developed strong planning and team coordination skills.",
     ],
   },
 };

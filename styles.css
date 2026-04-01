@@ -269,6 +269,22 @@ main {
   box-shadow: var(--shadow);
 }
 
+.profile-media {
+  margin: 0 0 1rem;
+}
+
+.profile-media img {
+  display: block;
+  width: clamp(8rem, 22vw, 10.5rem);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 16px 38px rgba(30, 40, 60, 0.12);
+  background: #f4f2ee;
+}
+
 .profile-intro {
   margin: 0 0 1.2rem;
   font-size: 1.03rem;
