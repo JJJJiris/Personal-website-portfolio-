@@ -260,26 +260,35 @@ main {
 }
 
 .profile-card {
-  max-width: 42rem;
+  max-width: 48rem;
   padding: 1.75rem 1.85rem 1.85rem;
   border-radius: var(--radius);
   border: 1px solid var(--card-border);
   background: var(--card);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(9.5rem, 24vw, 13rem);
+  gap: 1.2rem 1.4rem;
+  align-items: start;
+}
+
+.profile-copy {
+  min-width: 0;
 }
 
 .profile-media {
-  margin: 0 0 1rem;
+  margin: 0;
+  justify-self: end;
 }
 
 .profile-media img {
   display: block;
-  width: clamp(8rem, 22vw, 10.5rem);
-  aspect-ratio: 1 / 1;
+  width: clamp(9.5rem, 24vw, 13rem);
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center 20%;
-  border-radius: 999px;
+  object-position: center top;
+  border-radius: 1rem;
   border: 1px solid var(--card-border);
   box-shadow: 0 16px 38px rgba(30, 40, 60, 0.12);
   background: #f4f2ee;
@@ -309,6 +318,18 @@ main {
   font-size: 0.85rem;
   color: var(--ink-soft);
   line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .profile-media {
+    justify-self: start;
+    order: -1;
+  }
 }
 
 .btn-profile-cta {
