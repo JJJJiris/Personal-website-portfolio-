@@ -120,6 +120,44 @@ body::before {
   box-shadow: 0 2px 8px rgba(30, 40, 60, 0.06);
 }
 
+/* 语言切换固定在右上角，默认弱化，悬停/聚焦时清晰 */
+.lang-corner {
+  position: fixed;
+  top: max(0.65rem, env(safe-area-inset-top, 0px));
+  right: max(0.65rem, env(safe-area-inset-right, 0px));
+  z-index: 100;
+}
+
+.lang-switch--compact {
+  border: 1px solid rgba(28, 27, 26, 0.07);
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(10px);
+  padding: 2px;
+  gap: 1px;
+  opacity: 0.58;
+  transition:
+    opacity 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.lang-corner:hover .lang-switch--compact,
+.lang-switch--compact:focus-within {
+  opacity: 1;
+  border-color: rgba(28, 27, 26, 0.12);
+}
+
+.lang-switch--compact .lang-btn {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2rem 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.lang-switch--compact .lang-btn.active {
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.85);
+}
+
 .logo {
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -871,29 +909,10 @@ main {
 }
 
 .welcome-subtitle {
-  margin: 0 0 2.25rem;
+  margin: 0 0 2rem;
   font-size: 0.98rem;
   color: var(--ink-muted);
   line-height: 1.55;
-}
-
-.welcome-lang {
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.welcome-lang-label {
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  letter-spacing: 0.06em;
-}
-
-.lang-switch--welcome .lang-btn {
-  padding: 0.45rem 1rem;
-  font-size: 0.88rem;
 }
 
 .btn-welcome-enter {

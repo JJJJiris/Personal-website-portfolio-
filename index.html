@@ -16,20 +16,19 @@
   <body data-page="welcome">
     <div class="grain" aria-hidden="true"></div>
 
+    <div class="lang-corner no-print">
+      <div class="lang-switch lang-switch--compact" role="group" aria-label="语言">
+        <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+
     <main class="welcome-screen">
       <p class="welcome-eyebrow" data-i18n="welcome.eyebrow">Personal site</p>
       <h1 class="welcome-title" data-i18n="welcome.title">很高兴认识你</h1>
       <p class="welcome-subtitle" data-i18n="welcome.subtitle">
         先选择语言，再进入主页：左侧为个人简介摘要，下方为作品预览；完整履历与 PDF 在简历页，每个项目可展开详情。
       </p>
-
-      <div class="welcome-lang">
-        <span class="welcome-lang-label" data-i18n="welcome.langLabel">语言</span>
-        <div class="lang-switch lang-switch--welcome" role="group" aria-label="语言">
-          <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">中文</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-        </div>
-      </div>
 
       <button type="button" id="welcome-enter" class="btn-welcome-enter" data-i18n="welcome.enter">
         进入站点
