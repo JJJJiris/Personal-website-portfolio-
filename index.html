@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" id="meta-desc" />
-    <title id="doc-title">作品集 · 个人简历</title>
+    <title id="doc-title">欢迎</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,101 +13,28 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="welcome">
     <div class="grain" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <a href="#top" class="logo" data-i18n="site.name">你的名字</a>
-      <div class="header-end">
-        <nav class="nav" aria-label="主目录">
-          <a href="#resume" data-i18n="nav.resume">简历</a>
-          <a href="#work" data-i18n="nav.work">作品</a>
-          <a href="#contact" data-i18n="nav.contact">联系</a>
-        </nav>
-        <div class="lang-switch" role="group" aria-label="语言">
+    <main class="welcome-screen">
+      <p class="welcome-eyebrow" data-i18n="welcome.eyebrow">Portfolio & Résumé</p>
+      <h1 class="welcome-title" data-i18n="welcome.title">欢迎</h1>
+      <p class="welcome-subtitle" data-i18n="welcome.subtitle">
+        请选择语言，然后进入作品集与个人简历。
+      </p>
+
+      <div class="welcome-lang">
+        <span class="welcome-lang-label" data-i18n="welcome.langLabel">语言</span>
+        <div class="lang-switch lang-switch--welcome" role="group" aria-label="语言">
           <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">中文</button>
           <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
       </div>
-    </header>
 
-    <main id="top">
-      <section class="hero">
-        <p class="hero-tag" data-i18n="hero.tag">设计师 · 平面 / 产品 / 空间</p>
-        <h1 class="hero-title">
-          <span data-i18n="hero.title1">用极简语言，</span><br />
-          <span data-i18n="hero.title2">讲述清晰的设计叙事。</span>
-        </h1>
-        <p class="hero-lead" data-i18n="hero.lead">
-          你好，我是一名跨媒介设计师，专注于品牌视觉、产品与展陈空间。这里汇总了我的履历与精选项目。
-        </p>
-      </section>
-
-      <section id="resume" class="section resume">
-        <div class="resume-section-head">
-          <h2 class="section-title" data-i18n="section.resume">简历</h2>
-          <div class="resume-actions no-print">
-            <button type="button" id="btn-print-resume" class="btn-pdf" data-i18n="btn.printResume">
-              导出 PDF 简历
-            </button>
-            <span class="pdf-hint" data-i18n="resume.printHint"></span>
-          </div>
-        </div>
-        <div class="resume-grid">
-          <div class="resume-block">
-            <h3 data-i18n="resume.experience">经历</h3>
-            <ul class="timeline" id="timeline-exp"></ul>
-          </div>
-          <div class="resume-block">
-            <h3 data-i18n="resume.education">教育</h3>
-            <ul class="timeline" id="timeline-edu"></ul>
-          </div>
-          <div class="resume-block resume-skills">
-            <h3 data-i18n="resume.skills">技能与工具</h3>
-            <p class="skills" id="resume-skills-text"></p>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" class="section work">
-        <div class="work-head">
-          <h2 class="section-title" data-i18n="section.work">作品集</h2>
-          <div class="filters" role="tablist" aria-label="作品分类">
-            <button type="button" class="filter active" data-filter="all" role="tab" aria-selected="true">
-              <span class="filter-icon filter-icon--all" aria-hidden="true"></span>
-              <span data-i18n="filter.all">全部</span>
-            </button>
-            <button type="button" class="filter" data-filter="graphic" role="tab" aria-selected="false">
-              <span class="filter-icon filter-icon--graphic" aria-hidden="true"></span>
-              <span data-i18n="filter.graphic">平面</span>
-            </button>
-            <button type="button" class="filter" data-filter="product" role="tab" aria-selected="false">
-              <span class="filter-icon filter-icon--product" aria-hidden="true"></span>
-              <span data-i18n="filter.product">产品</span>
-            </button>
-            <button type="button" class="filter" data-filter="spatial" role="tab" aria-selected="false">
-              <span class="filter-icon filter-icon--spatial" aria-hidden="true"></span>
-              <span data-i18n="filter.spatial">空间</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="project-grid" id="project-grid"></div>
-      </section>
-
-      <section id="contact" class="section contact">
-        <h2 class="section-title" data-i18n="section.contact">联系</h2>
-        <p class="contact-text">
-          <span data-i18n="contact.line1">合作或投递机会欢迎来信：</span>
-          <a id="contact-mail" href="mailto:hello@example.com">hello@example.com</a>
-        </p>
-        <p class="contact-note" data-i18n="contact.note">将邮箱替换为你的真实邮箱即可。</p>
-      </section>
+      <button type="button" id="welcome-enter" class="btn-welcome-enter" data-i18n="welcome.enter">
+        进入站点
+      </button>
     </main>
-
-    <footer class="site-footer">
-      <span>© <span id="year"></span> <span data-i18n="site.name">你的名字</span></span>
-    </footer>
 
     <script src="app.js"></script>
   </body>

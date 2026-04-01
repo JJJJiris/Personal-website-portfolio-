@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" id="meta-desc" />
+    <title id="doc-title">项目</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="project">
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="home.html" class="logo" data-i18n="site.name">你的名字</a>
+      <div class="header-end">
+        <nav class="nav" aria-label="主目录">
+          <a href="resume.html" data-i18n="nav.resume">简历</a>
+          <a href="home.html#work" data-i18n="nav.work">作品</a>
+          <a href="home.html#contact" data-i18n="nav.contact">联系</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="语言">
+          <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">中文</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="main-project">
+      <a href="home.html#work" class="back-link no-print" data-i18n="project.back">← 返回作品列表</a>
+      <div id="project-root"></div>
+      <div id="project-not-found" class="project-not-found" hidden>
+        <p data-i18n="project.notFound">未找到该项目。</p>
+        <a href="home.html#work" class="link-cta" data-i18n="project.backWork">回到作品列表</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> <span data-i18n="site.name">你的名字</span></span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

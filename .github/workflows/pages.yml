@@ -24,7 +24,7 @@ jobs:
       - name: Collect static files
         run: |
           mkdir -p out
-          cp index.html app.js styles.css .nojekyll out/
+          cp index.html home.html resume.html project.html app.js styles.css .nojekyll out/
           cp -r images out/
 
       - name: Setup Pages

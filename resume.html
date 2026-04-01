@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" id="meta-desc" />
+    <title id="doc-title">简历</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="resume">
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="home.html" class="logo" data-i18n="site.name">你的名字</a>
+      <div class="header-end">
+        <nav class="nav" aria-label="主目录">
+          <a href="resume.html" data-i18n="nav.resume">简历</a>
+          <a href="home.html#work" data-i18n="nav.work">作品</a>
+          <a href="home.html#contact" data-i18n="nav.contact">联系</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="语言">
+          <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">中文</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section id="resume" class="section resume resume-page">
+        <div class="resume-section-head">
+          <h2 class="section-title" data-i18n="section.resume">简历</h2>
+          <div class="resume-actions no-print">
+            <button type="button" id="btn-print-resume" class="btn-pdf" data-i18n="btn.printResume">
+              导出 PDF 简历
+            </button>
+            <span class="pdf-hint" data-i18n="resume.printHint"></span>
+          </div>
+        </div>
+        <div class="resume-grid">
+          <div class="resume-block">
+            <h3 data-i18n="resume.experience">经历</h3>
+            <ul class="timeline" id="timeline-exp"></ul>
+          </div>
+          <div class="resume-block">
+            <h3 data-i18n="resume.education">教育</h3>
+            <ul class="timeline" id="timeline-edu"></ul>
+          </div>
+          <div class="resume-block resume-skills">
+            <h3 data-i18n="resume.skills">技能与工具</h3>
+            <p class="skills" id="resume-skills-text"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> <span data-i18n="site.name">你的名字</span></span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

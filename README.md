@@ -10,7 +10,7 @@
 
 ## 本地预览
 
-用浏览器打开 `index.html`，或 `python3 -m http.server 8080` 后访问 <http://localhost:8080>。
+入口为 **`index.html`（欢迎页，选中语言后进入 `home.html`）**。也可在项目目录执行 `python3 -m http.server 8080` 后访问 <http://localhost:8080>。
 
 ## Pages 说明
 

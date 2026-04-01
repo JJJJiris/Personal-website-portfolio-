@@ -3,8 +3,17 @@ const CONTACT_EMAIL = "hello@example.com";
 const I18N = {
   zh: {
     "site.name": "你的名字",
-    "doc.title": "作品集 · 个人简历",
+    "doc.titleWelcome": "欢迎 · 作品集",
+    "doc.title": "作品集 · 主页",
+    "doc.titleResume": "简历 · 作品集",
+    "meta.descWelcome": "个人作品集与简历 — 选择语言后进入",
     "meta.desc": "个人简历与作品集 — 平面、产品与空间设计",
+    "meta.descResume": "设计师简历 — 经历、教育与技能",
+    "welcome.eyebrow": "作品集与简历",
+    "welcome.title": "欢迎",
+    "welcome.subtitle": "请选择语言（站内其它页面也会使用同一语言），然后进入主页浏览作品与履历。",
+    "welcome.langLabel": "界面语言",
+    "welcome.enter": "进入站点",
     "nav.resume": "简历",
     "nav.work": "作品",
     "nav.contact": "联系",
@@ -13,6 +22,7 @@ const I18N = {
     "hero.title2": "讲述清晰的设计叙事。",
     "hero.lead":
       "你好，我是一名跨媒介设计师，专注于品牌视觉、产品与展陈空间。这里汇总了我的履历与精选项目。",
+    "hero.ctaResume": "查看完整简历 →",
     "section.resume": "简历",
     "section.work": "作品集",
     "section.contact": "联系",
@@ -28,11 +38,25 @@ const I18N = {
     "filter.aria": "作品分类",
     "contact.line1": "合作或投递机会欢迎来信：",
     "contact.note": "将邮箱替换为你的真实邮箱即可。",
+    "project.back": "← 返回作品列表",
+    "project.backWork": "回到作品列表",
+    "project.notFound": "未找到该项目。",
+    "project.open": "查看项目 →",
   },
   en: {
     "site.name": "Your Name",
-    "doc.title": "Portfolio · Résumé",
+    "doc.titleWelcome": "Welcome · Portfolio",
+    "doc.title": "Portfolio · Home",
+    "doc.titleResume": "Résumé · Portfolio",
+    "meta.descWelcome": "Portfolio & résumé — choose a language to continue",
     "meta.desc": "Résumé & portfolio — graphic, product, and spatial design",
+    "meta.descResume": "Designer résumé — experience, education, and skills",
+    "welcome.eyebrow": "Portfolio & résumé",
+    "welcome.title": "Welcome",
+    "welcome.subtitle":
+      "Choose your language (used across the site), then continue to the portfolio and résumé.",
+    "welcome.langLabel": "Language",
+    "welcome.enter": "Enter site",
     "nav.resume": "Résumé",
     "nav.work": "Work",
     "nav.contact": "Contact",
@@ -41,6 +65,7 @@ const I18N = {
     "hero.title2": "clear design narratives.",
     "hero.lead":
       "I’m a cross-disciplinary designer focused on brand visuals, product, and exhibition spaces. Below is my résumé and selected projects.",
+    "hero.ctaResume": "View full résumé →",
     "section.resume": "Résumé",
     "section.work": "Portfolio",
     "section.contact": "Contact",
@@ -56,6 +81,10 @@ const I18N = {
     "filter.aria": "Portfolio categories",
     "contact.line1": "Collaborations and opportunities:",
     "contact.note": "Replace the email with your own address.",
+    "project.back": "← Back to work",
+    "project.backWork": "Back to portfolio",
+    "project.notFound": "Project not found.",
+    "project.open": "View project →",
   },
 };
 
@@ -107,57 +136,86 @@ const RESUME = {
 };
 
 /**
- * 作品集条目。
- * category: "graphic" | "product" | "spatial"
- * image: 可选；有值则显示封面图（相对本站根目录，如 "images/project-01.jpg"），无则保留空白占位区。
+ * slug: 项目页 URL project.html?slug=xxx
+ * content: 详情正文，用 \n\n 分段
  */
 const PROJECTS = [
   {
+    slug: "brand-identity",
     category: "graphic",
     title: { zh: "品牌视觉系统", en: "Brand identity system" },
     description: {
       zh: "整套 VI 与延展应用，浅色极简主调。",
       en: "Full VI and applications with a light, minimal tone.",
     },
+    content: {
+      zh: "从标志基础到延展图形、色彩与字体规则，统一线上与印刷触点。\n\n侧重可执行的规范文档，便于团队协作与外包对接。",
+      en: "From logotype and core marks to extensions, color, and type rules across digital and print.\n\nFocus on practical guidelines for handoff to teams and vendors.",
+    },
   },
   {
+    slug: "electronics-packaging",
     category: "product",
     title: { zh: "消费电子产品包装", en: "Consumer electronics packaging" },
     description: {
       zh: "结构与印刷工艺一体化方案。",
       en: "Structure and print workflow in one scheme.",
     },
+    content: {
+      zh: "在保护性与拆箱体验之间取舍，确定材质、楞型与表面处理。\n\n打样阶段与印厂对齐套色与工差，控制量产一致性。",
+      en: "Balancing protection and unboxing within material, board, and finish constraints.\n\nProofing with the printer for color registration and tolerance at scale.",
+    },
   },
   {
+    slug: "exhibition-circulation",
     category: "spatial",
     title: { zh: "展陈与动线", en: "Exhibition & circulation" },
     description: {
       zh: "小型 Popup 与展位灯光规划。",
       en: "Popup spaces and booth lighting planning.",
     },
+    content: {
+      zh: "梳理参观动线与视线焦点，划分展示区与互动区。\n\n灯光层次配合展品材质，避免眩光并突出主视觉。",
+      en: "Visitor flow and focal points, separating display and interaction zones.\n\nLayered lighting tuned to materials, minimizing glare while highlighting key visuals.",
+    },
   },
   {
+    slug: "publication-design",
     category: "graphic",
     title: { zh: "出版物编辑设计", en: "Publication design" },
     description: {
       zh: "文集与展览画册的版式与纸张选择。",
       en: "Layout and paper choices for books and exhibition catalogues.",
     },
+    content: {
+      zh: "网格与留白服务于长文可读性，插图与脚注系统一致。\n\n纸张克重与装订方式按印量与成本联合选定。",
+      en: "Grids and margins tuned for long-form reading; consistent figure and note systems.\n\nPaper weight and binding chosen with print run and budget.",
+    },
   },
   {
+    slug: "furniture-concept",
     category: "product",
     title: { zh: "家具系列概念", en: "Furniture series concept" },
     description: {
       zh: "模块化构件与材质研究。",
       en: "Modular parts and material studies.",
     },
+    content: {
+      zh: "通过少量模块组合多种尺度，便于仓储与运输。\n\n材质样板与结构节点在模型阶段验证。",
+      en: "A small kit of parts scales across formats for storage and shipping.\n\nMaterial studies and joints validated in scale models.",
+    },
   },
   {
+    slug: "studio-retrofit",
     category: "spatial",
     title: { zh: "工作室改造", en: "Studio retrofit" },
     description: {
       zh: "工作区与材料库一体化空间。",
       en: "Integrated workspace and materials library.",
+    },
+    content: {
+      zh: "日光与人工照明分区控制，材料岛台便于比样。\n\n动静分区减少打样区对专注工位的干扰。",
+      en: "Daylight and artificial light zoned for tasks; a central island for material samples.\n\nSeparating noisy making from focused desk work.",
     },
   },
 ];
@@ -169,6 +227,10 @@ const CATEGORY_CLASS = {
 };
 
 const STORAGE_KEY = "portfolio-locale";
+
+function pageType() {
+  return document.body.dataset.page || "home";
+}
 
 function getLocale() {
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -188,9 +250,23 @@ function applyI18n() {
     const key = el.getAttribute("data-i18n");
     el.textContent = t(key);
   });
-  document.getElementById("doc-title").textContent = t("doc.title");
+
+  const pt = pageType();
+  const titleEl = document.getElementById("doc-title");
   const meta = document.getElementById("meta-desc");
-  if (meta) meta.setAttribute("content", t("meta.desc"));
+  if (titleEl && meta && pt !== "project") {
+    if (pt === "welcome") {
+      titleEl.textContent = t("doc.titleWelcome");
+      meta.setAttribute("content", t("meta.descWelcome"));
+    } else if (pt === "resume") {
+      titleEl.textContent = t("doc.titleResume");
+      meta.setAttribute("content", t("meta.descResume"));
+    } else if (pt === "home") {
+      titleEl.textContent = t("doc.title");
+      meta.setAttribute("content", t("meta.desc"));
+    }
+  }
+
   const filters = document.querySelector(".filters");
   if (filters) filters.setAttribute("aria-label", t("filter.aria"));
 
@@ -203,6 +279,7 @@ function applyI18n() {
 
 function renderTimeline(containerId, items) {
   const ul = document.getElementById(containerId);
+  if (!ul) return;
   ul.innerHTML = items
     .map((item) => {
       const copy = item[locale] || item.zh;
@@ -218,7 +295,8 @@ function renderTimeline(containerId, items) {
 function renderResume() {
   renderTimeline("timeline-exp", RESUME.experience);
   renderTimeline("timeline-edu", RESUME.education);
-  document.getElementById("resume-skills-text").textContent = RESUME.skills[locale] || RESUME.skills.zh;
+  const skills = document.getElementById("resume-skills-text");
+  if (skills) skills.textContent = RESUME.skills[locale] || RESUME.skills.zh;
 }
 
 function projectImageSrc(p) {
@@ -227,31 +305,44 @@ function projectImageSrc(p) {
   return s;
 }
 
-function renderProjects() {
-  const grid = document.getElementById("project-grid");
-  grid.innerHTML = PROJECTS.map((p) => {
-    const title = p.title[locale] || p.title.zh;
-    const desc = p.description[locale] || p.description.zh;
-    const src = projectImageSrc(p);
-    const alt = escapeHtml(title);
-    const thumbInner =
-      src !== ""
-        ? `<div class="project-thumb project-thumb--img">
+function projectHref(slug) {
+  return `project.html?slug=${encodeURIComponent(slug)}`;
+}
+
+function thumbBlock(p, alt, hrefForCard) {
+  const src = projectImageSrc(p);
+  const wrapStart = hrefForCard ? `<a href="${hrefForCard}" class="project-thumb-wrap">` : "<div>";
+  const wrapEnd = hrefForCard ? "</a>" : "</div>";
+  if (src !== "") {
+    return `${wrapStart}<div class="project-thumb project-thumb--img">
         <img src="${escapeHtml(src)}" alt="${alt}" width="960" height="720" loading="lazy" decoding="async" />
         <span class="cat-badge">
           <span class="filter-icon ${CATEGORY_CLASS[p.category]}" aria-hidden="true"></span>
         </span>
-      </div>`
-        : `<div class="project-thumb project-thumb--empty" role="img" aria-label="${alt}">
+      </div>${wrapEnd}`;
+  }
+  return `${wrapStart}<div class="project-thumb project-thumb--empty" role="img" aria-label="${alt}">
         <span class="cat-badge">
           <span class="filter-icon ${CATEGORY_CLASS[p.category]}" aria-hidden="true"></span>
         </span>
-      </div>`;
+      </div>${wrapEnd}`;
+}
+
+function renderProjects() {
+  const grid = document.getElementById("project-grid");
+  if (!grid) return;
+  grid.innerHTML = PROJECTS.map((p) => {
+    const title = p.title[locale] || p.title.zh;
+    const desc = p.description[locale] || p.description.zh;
+    const alt = escapeHtml(title);
+    const href = projectHref(p.slug);
+    const thumb = thumbBlock(p, alt, href);
     return `<article class="project-card" data-category="${p.category}">
-      ${thumbInner}
+      ${thumb}
       <div class="project-body">
-        <h3>${escapeHtml(title)}</h3>
+        <h3><a href="${href}" class="project-title-link">${escapeHtml(title)}</a></h3>
         <p>${escapeHtml(desc)}</p>
+        <p class="project-more"><a href="${href}" class="link-cta subtle">${escapeHtml(t("project.open"))}</a></p>
       </div>
     </article>`;
   }).join("");
@@ -296,6 +387,96 @@ function reapplyFilterState(activeFilter) {
   });
 }
 
+function getProjectBySlug(slug) {
+  if (!slug) return null;
+  const decoded = decodeURIComponent(slug);
+  return PROJECTS.find((p) => p.slug === decoded) || null;
+}
+
+function formatContentParagraphs(text) {
+  if (!text) return "";
+  return text
+    .split(/\n\n+/)
+    .map((para) => para.trim())
+    .filter(Boolean)
+    .map((para) => `<p>${escapeHtml(para)}</p>`)
+    .join("");
+}
+
+function renderProjectPage() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("slug");
+  const project = getProjectBySlug(slug);
+  const root = document.getElementById("project-root");
+  const nf = document.getElementById("project-not-found");
+
+  if (!root || !nf) return;
+
+  if (!project) {
+    root.innerHTML = "";
+    root.hidden = true;
+    nf.hidden = false;
+    applyI18n();
+    document.getElementById("doc-title").textContent = t("project.notFound");
+    document.getElementById("meta-desc").setAttribute("content", t("project.notFound"));
+    return;
+  }
+
+  nf.hidden = true;
+  root.hidden = false;
+
+  const title = project.title[locale] || project.title.zh;
+  const desc = project.description[locale] || project.description.zh;
+  const bodyHtml = formatContentParagraphs(project.content[locale] || project.content.zh || "");
+  const src = projectImageSrc(project);
+  const alt = escapeHtml(title);
+  const catLabel = t(`filter.${project.category}`);
+
+  const media =
+    src !== ""
+      ? `<div class="project-detail-media project-thumb project-thumb--img">
+          <img src="${escapeHtml(src)}" alt="${alt}" width="1200" height="675" loading="eager" decoding="async" />
+          <span class="cat-badge" aria-label="${escapeHtml(catLabel)}">
+            <span class="filter-icon ${CATEGORY_CLASS[project.category]}" aria-hidden="true"></span>
+          </span>
+        </div>`
+      : `<div class="project-detail-media project-thumb project-thumb--empty" role="img" aria-label="${alt}">
+          <span class="cat-badge"><span class="filter-icon ${CATEGORY_CLASS[project.category]}" aria-hidden="true"></span></span>
+        </div>`;
+
+  root.innerHTML = `<article class="project-detail">
+    ${media}
+    <header class="project-detail-header">
+      <p class="project-detail-meta"><span class="project-detail-cat">${escapeHtml(catLabel)}</span></p>
+      <h1 class="project-detail-title">${escapeHtml(title)}</h1>
+      <p class="project-detail-lead">${escapeHtml(desc)}</p>
+    </header>
+    <div class="project-detail-body">${bodyHtml}</div>
+  </article>`;
+
+  document.getElementById("doc-title").textContent = `${title} · ${t("site.name")}`;
+  document.getElementById("meta-desc").setAttribute("content", desc);
+  applyI18n();
+}
+
+function onLocaleChange() {
+  const pt = pageType();
+  const filter = document.querySelector(".filter.active")?.getAttribute("data-filter") || "all";
+  applyI18n();
+  if (pt === "welcome") {
+    return;
+  }
+  if (pt === "home") {
+    renderProjects();
+    reapplyFilterState(filter);
+  } else if (pt === "resume") {
+    renderResume();
+  } else if (pt === "project") {
+    renderProjectPage();
+  }
+  setupContactMail();
+}
+
 function setupLang() {
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -303,7 +484,7 @@ function setupLang() {
       if (next === locale) return;
       locale = next;
       localStorage.setItem(STORAGE_KEY, locale);
-      refreshAll();
+      onLocaleChange();
     });
   });
 }
@@ -311,14 +492,6 @@ function setupLang() {
 function setupPrint() {
   const btn = document.getElementById("btn-print-resume");
   if (btn) btn.addEventListener("click", () => window.print());
-}
-
-function refreshAll() {
-  const filter = document.querySelector(".filter.active")?.getAttribute("data-filter") || "all";
-  applyI18n();
-  renderResume();
-  renderProjects();
-  reapplyFilterState(filter);
 }
 
 function setupContactMail() {
@@ -329,11 +502,46 @@ function setupContactMail() {
   }
 }
 
-document.getElementById("year").textContent = String(new Date().getFullYear());
-setupContactMail();
-applyI18n();
-renderResume();
-renderProjects();
-setupFilters();
-setupLang();
-setupPrint();
+function initHome() {
+  applyI18n();
+  renderProjects();
+  setupFilters();
+  setupLang();
+  setupPrint();
+  setupContactMail();
+}
+
+function initResume() {
+  applyI18n();
+  renderResume();
+  setupLang();
+  setupPrint();
+  setupContactMail();
+}
+
+function initProject() {
+  applyI18n();
+  renderProjectPage();
+  setupLang();
+  setupContactMail();
+}
+
+function initWelcome() {
+  applyI18n();
+  setupLang();
+  const enter = document.getElementById("welcome-enter");
+  if (enter) {
+    enter.addEventListener("click", () => {
+      window.location.href = "home.html";
+    });
+  }
+}
+
+const y = document.getElementById("year");
+if (y) y.textContent = String(new Date().getFullYear());
+
+const pt = pageType();
+if (pt === "welcome") initWelcome();
+else if (pt === "home") initHome();
+else if (pt === "resume") initResume();
+else if (pt === "project") initProject();
